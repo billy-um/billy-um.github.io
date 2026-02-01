@@ -15,30 +15,14 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
-  background: red;
-  transform: rotate(-45deg);
-  animation: floatUp 2s linear forwards;
-}
-.heart::before,
-.heart::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: red;
-  border-radius: 50%;
-}
-.heart::before {
-  top: -15px;
-  left: 0;
-}
-.heart::after {
-  left: 15px;
-  top: 0;
+  color: red;
+  font-size: 2rem;
+  user-select: none;
+  animation: floatUp 3s ease-out forwards;
 }
 @keyframes floatUp {
-  0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
-  100% { transform: translateY(-200px) rotate(-45deg); opacity: 0; }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-250px); opacity: 0; }
 }
 </style>
 </head>
@@ -57,7 +41,19 @@ const nonBtn = document.getElementById('nonBtn');
 const messageDiv = document.getElementById('message');
 
 ouiBtn.addEventListener('click', () => {
-  messageDiv.textContent = "Ahahaha raightttt ! Prépare tes affaires de bain et n'oublie pas ton bonnet 🩱🫧";
+  messageDiv.textContent = "Ahahaha raighttt 🫰 ! Prépare tes affaires de bain et n'oublie pas ton bonnet 🩱🫧";
+
+  // Animation de quelques cœurs
+  for (let i = 0; i < 8; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = window.innerHeight + 'px';
+    heart.style.fontSize = (24 + Math.random() * 24) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
 });
 
 nonBtn.addEventListener('click', () => {
