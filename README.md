@@ -1,1 +1,69 @@
-# billy-um.github.io
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anaël tu veux passer la Saint-Valentin avec moi? 🫰</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  overflow: hidden;
+  transition: background 0.5s;
+}
+.heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  transform: rotate(-45deg);
+  animation: floatUp 2s linear forwards;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+}
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+.heart::after {
+  left: 15px;
+  top: 0;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+  100% { transform: translateY(-200px) rotate(-45deg); opacity: 0; }
+}
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center font-sans">
+<div class="bg-white/90 backdrop-blur rounded-3xl shadow-2xl w-full max-w-md p-8 text-center">
+<h1 class="text-4xl font-bold text-pink-600 mb-6">Anaël tu veux passer la Saint-Valentin avec moi ? 🫰</h1>
+<div class="flex justify-center gap-4">
+<button id="ouiBtn" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl text-lg">Oui ahaha</button>
+<button id="nonBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-3 rounded-xl text-lg">Non ...</button>
+</div>
+<div id="message" class="mt-6 text-lg text-pink-700 font-semibold"></div>
+</div>
+<script>
+const ouiBtn = document.getElementById('ouiBtn');
+const nonBtn = document.getElementById('nonBtn');
+const messageDiv = document.getElementById('message');
+
+ouiBtn.addEventListener('click', () => {
+  messageDiv.textContent = "Ahahaha raightttt ! Prépare tes affaires de bain et n'oublie pas ton bonnet 🩱🫧";
+});
+
+nonBtn.addEventListener('click', () => {
+  document.body.style.background = '#000';
+  document.body.innerHTML = '<h1 class="text-white text-4xl font-bold flex items-center justify-center h-screen">🫠😢😂</h1>';
+});
+</script>
+</body>
+</html>
